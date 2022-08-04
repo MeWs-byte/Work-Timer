@@ -17,34 +17,35 @@ class MainActivity : AppCompatActivity() {
         // move varis here
         val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z")
 
+        // list stuff here
+        var startyList = listOf<String>()
+        startyList = mutableListOf()
+
+        var endyList = listOf<String>()
+        endyList = mutableListOf()
 
 
-
+// start work button
         val startButton: Button = findViewById(R.id.button2)
         startButton.setOnClickListener{
 
-            // came from here
+
             val currentDateAndTime: String = simpleDateFormat.format(Date())
             val toast = Toast.makeText(this, currentDateAndTime, Toast.LENGTH_SHORT)
             toast.show()
 
             //testList
-            val arrayAdapter: ArrayAdapter<*>
-            var users = arrayOf(
-                currentDateAndTime
-            )
+            var arrayAdapter: ArrayAdapter<*>
+
+            // adding to testyList here
+            startyList.add(currentDateAndTime)
+
+            // update list in list view
+
             var mListView = findViewById<ListView>(R.id.testList)
             arrayAdapter = ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, users)
+                android.R.layout.simple_list_item_1, startyList)
             mListView.adapter = arrayAdapter
-
-            //users = users.plus(currentDateAndTime)
-
-            //val startTimeList = listOf(currentDateAndTime)
-            //println(startTimeList)
-
-
-
 
 
         }
@@ -56,13 +57,21 @@ class MainActivity : AppCompatActivity() {
             toast.show()
 
             //testList
-            val arrayAdapter: ArrayAdapter<*>
-            var users = arrayOf(
-                currentEndDateAndTime
-            )
+
+            //testList
+            var arrayAdapter: ArrayAdapter<*>
+
+            // adding to testyList here
+            endyList.add(currentEndDateAndTime)
+
+            // update list in list view
+
+
+
+
             var mListView = findViewById<ListView>(R.id.testList2)
             arrayAdapter = ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, users)
+                android.R.layout.simple_list_item_1, endyList)
             mListView.adapter = arrayAdapter
 
 
@@ -79,5 +88,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
 
